@@ -12,5 +12,5 @@ package listaduplamenteencadeada;
 public class No {
     No anterior;
     No proximo;
-    Produto produto;    
+    Produto produto; 
 }

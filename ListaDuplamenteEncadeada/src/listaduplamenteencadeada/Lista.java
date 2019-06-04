@@ -42,20 +42,17 @@ public class Lista {
         if (primeiro == ultimo && rem != null) {
             primeiro = null;
             ultimo = null;
-        }
-        else if (rem == primeiro) {
+        } else if (rem == primeiro) {
             No prox = rem.proximo;
             prox.anterior = null;
             primeiro = prox;
             rem.proximo = null;
-        }
-        else if (rem == ultimo) {
+        } else if (rem == ultimo) {
             No ant = rem.anterior;
             ant.proximo = null;
             ultimo = ant;
-            rem.anterior = null;            
-        }
-        else if (rem != null) {
+            rem.anterior = null;
+        } else if (rem != null) {
             No ant = rem.anterior;
             No prox = rem.proximo;
 
@@ -64,6 +61,24 @@ public class Lista {
 
             prox.anterior = rem.anterior;
             rem.anterior = null;
+        } else {
+            System.out.println("Lista Vazia");
+        }
+    }
+
+    public void limpaLista() {
+        primeiro = null;
+        ultimo = null;
+    }
+    
+    public void imprimeLista(){
+        No aux = primeiro;
+        while (aux!=null) {            
+            Produto p = aux.produto;
+            System.out.println(aux + " -> " + p.toString() +
+                    "Ant: " + aux.anterior+
+                    "Prox: " + aux.proximo);
+            aux = aux.proximo;
         }
     }
 }

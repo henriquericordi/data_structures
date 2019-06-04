@@ -12,10 +12,19 @@ package listaduplamenteencadeada;
 public class Produto {
     int id;
     String nome;
+    Produto prod;
 
     @Override
     public String toString() {
         return "Produto{" + "id=" + id + ", nome=" + nome + '}';
     }
-        
+
+    public Produto(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }   
+
+    public Produto(Produto p) {
+        prod = p;
+    }           
 }
