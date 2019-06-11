@@ -17,4 +17,28 @@ public class No<T> {
     public No(T obj) {
         t = obj;
     }
+
+    public No<T> getAnterior() {
+        return anterior;
+    }
+
+    public No<T> getProximo() {
+        return proximo;
+    }
+
+    public T getT() {
+        return t;
+    }
+
+    public void setAnterior(No<T> anterior) {
+        this.anterior = anterior;
+    }
+
+    public void setProximo(No<T> proximo) {
+        this.proximo = proximo;
+    }
+
+    public void setT(T t) {
+        this.t = t;
+    }    
 }
