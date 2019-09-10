@@ -16,12 +16,14 @@ public class Ordenação {
      */
     public static void main(String[] args) {
         int v[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        System.out.print("Antes: \n");
         for (int i = 0; i < 10; i++) {
-            System.out.println(v[i]);
+            System.out.print(v[i] + " , ");
         }
         bubbleSort(v, v.length);
+        System.out.print("\nDepois: \n");
         for (int j = 0; j < 10; j++) {
-            System.out.println(v[j]);
+            System.out.print(v[j] + " , ");
         }        
     }
 
