@@ -16,33 +16,34 @@ public class Ordenação {
      */
     public static void main(String[] args) {
         int v[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        
         System.out.print("Antes: \n");
         for (int i = 0; i < 10; i++) {
-            System.out.print(v[i] + " , ");
+            System.out.print(v[i] + " ");
         }
+        
         bubbleSort(v, v.length);
-        System.out.print("\nDepois: \n");
+        
+        System.out.println();
+        System.out.print("Depois: \n");
         for (int j = 0; j < 10; j++) {
-            System.out.print(v[j] + " , ");
-        }        
+            System.out.print(v[j] + " ");
+        }
+        System.out.println();
     }
 
-    public static void swap(int a, int b){ 
-        int temp = a;
-        a = b;
-        b = temp;
-    }
-
-    public static void bubbleSort(int v[], int n) {
+    public static void bubbleSort(int[] v, int n) {
         if (n < 1) {
             return;
         }
-        for (int i = 0; i < n; i++) {
-            if (v[i] > v[i+1]) {
-                swap(v[i], v[i+1]);
+        for (int i = 1; i < n; i++) {
+            if (v[i - 1] > v[i]) {
+                int temp = v[i];
+                v[i] = v[i - 1];
+                v[i - 1] = temp;
             }
         }
-        bubbleSort(v, n-1);
+        bubbleSort(v, n - 1);
     }
 
     public static void selectionSort() {
