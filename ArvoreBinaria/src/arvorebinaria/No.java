@@ -15,6 +15,10 @@ public class No {
     No filhoDir;
     No pai;
 
+    public No (int val){
+        valor = val;
+    }
+    
     @Override
     public String toString() {
         return "No{\n" + "valor = " + valor + "\n}";
