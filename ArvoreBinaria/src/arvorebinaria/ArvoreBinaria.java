@@ -32,7 +32,7 @@ public class ArvoreBinaria {
         } else {
             No aux = raiz;
             No paiN = null;
-            //navega na arvore ate enconrtrar o nó pai de n
+            //navega na arvore ate enconrtrar o nó pai de n.
             while (paiN == null) {
                 if (n.getValor() > aux.getValor()) {
                     if (aux.getFilhoDir() != null) {
@@ -43,7 +43,7 @@ public class ArvoreBinaria {
                         paiN.setFilhoDir(n);
                     }
                 } else {
-                    if (aux.getFilhoEsq() != null) {
+                    if (aux.getFilhoDir() != null) {
                         aux = aux.getFilhoEsq();
                     } else {
                         paiN = aux;
@@ -55,7 +55,7 @@ public class ArvoreBinaria {
         }
     }//insere
 
-    //Pre ordem
+//Pre ordem...
     public void imprimeArvore(No aux) {
         if (aux == null) {
             return;
@@ -63,6 +63,7 @@ public class ArvoreBinaria {
         System.out.println(aux.toString());
         imprimeArvore(aux.getFilhoEsq());
         imprimeArvore(aux.getFilhoDir());
+
     }
 
     public No busca(int val) {
@@ -71,11 +72,12 @@ public class ArvoreBinaria {
             return aux;
         } else {
             while (aux != null) {
-                if (val > aux.getValor()) {
+                if (aux.getValor() > val) {
                     aux = aux.getFilhoDir();
-                } else if ( val < aux.getValor()) {
+                } else if (aux.getValor() < val) {
                     aux = aux.getFilhoEsq();
-                } else { //localizou
+                } else //localizou
+                {
                     return aux;
                 }
             }
@@ -85,6 +87,7 @@ public class ArvoreBinaria {
 
     public No remove(int val) {
         No r = busca(val);
+
         if (r.getFilhoDir() == null && r.getFilhoEsq() == null && r != raiz) {
             //se nao possui filhos
             No paiR = r.getPai();
@@ -95,23 +98,21 @@ public class ArvoreBinaria {
             }
         } else if ((r.getFilhoDir() == null || r.getFilhoEsq() == null) && r != raiz) {
             //possui pelo menos 1 filho...
-            No filER = r.getFilhoEsq();
-            No filDR = r.getFilhoDir();
             No paiR = r.getPai();
-            No minDir = min(filDR);
+            No filho;
+            if (r.getFilhoDir() == null) {
+                filho = r.getFilhoEsq();
+                paiR.setFilhoEsq(filho);
+            } else {
+                filho = r.getFilhoDir();
+                paiR.setFilhoDir(filho);
+            }
+            filho.setPai(paiR);
+        }
+        if (r.filhoEsq!=null && r.filhoDir!=null) {
+                        
         }
         return r;
-    }//remove
-    
-    public No min(No raiz){
-        No aux = raiz;
-        while (aux!=null) {            
-            if (aux.getFilhoEsq()==null) {
-                return aux;
-            } else {
-                aux = aux.getFilhoEsq();
-            }
-        }
-        return aux;        
     }
+
 }
