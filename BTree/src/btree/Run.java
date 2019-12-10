@@ -5,6 +5,11 @@
  */
 package btree;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 /**
  *
  * @author CC45966446830
@@ -14,8 +19,13 @@ public class Run {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         BTree<String, String> st = new BTree<String, String>();
+        
+        Gson gson = new Gson();
+        
+	JsonElement json = gson.fromJson(new FileReader("notebook_sell.json"), JsonElement.class);
+        String result = gson.toJson(json);
 
         st.put("www.cs.princeton.edu", "128.112.136.12");
         st.put("www.cs.princeton.edu", "128.112.136.11");
