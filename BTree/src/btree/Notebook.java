@@ -9,7 +9,7 @@ package btree;
  *
  * @author CC45966446830
  */
-public class Notebook {
+public class Notebook implements Comparable{
     private String description;
     private String title;
     private String url;
@@ -83,4 +83,18 @@ public class Notebook {
         this.location = location;
         this.condition = condition;
     }        
+
+    @Override
+    public String toString() {
+        return "Notebook{" + "description=" + description + ", title=" + title + ", url=" + url + ", price=" + price + ", creation_time=" + creation_time + ", location=" + location + ", condition=" + condition + '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int local = this.hashCode();
+        int comp = o.hashCode();
+        return local - comp;
+    }
+    
+    
 }
